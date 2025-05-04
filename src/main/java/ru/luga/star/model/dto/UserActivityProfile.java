@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class UserActivityProfile extends HashMap<String, HashMap<String, Integer>> {
 
+    /**
+     * Добавить активность пользователя в структуру
+     */
     public void addUserActivity(UserActivity userActivity) {
         String productType = userActivity.getProductType();
         String transactionType = userActivity.getTransactonType();
@@ -16,6 +19,9 @@ public class UserActivityProfile extends HashMap<String, HashMap<String, Integer
         this.get(productType).put(transactionType, amount);
     }
 
+    /**
+     * Вернуть сумму пополнения по продуктам данного типа
+     */
     public Integer getDepositAmount(String productType) {
         if (!this.containsKey(productType)) {
             return 0;
@@ -28,6 +34,9 @@ public class UserActivityProfile extends HashMap<String, HashMap<String, Integer
         return 0;
     }
 
+    /**
+     * Вернуть сумму трат по продуктам данного типа
+     */
     public Integer getWithDrawAmount(String productType) {
         if (!this.containsKey(productType)) {
             return 0;
