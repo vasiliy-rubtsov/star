@@ -14,8 +14,8 @@ public class RecommendationRule1 implements IRecommendationRule {
     @Override
     public void apply(UserActivityProfile userActivityProfile, AllRecommendations allRecommendations) {
         boolean condition = true;
-        condition = condition && userActivityProfile.containsKey("DEBIT"); // Пользователь использует как минимум один продукт с типом DEBIT
-        condition = condition && !userActivityProfile.containsKey("INVEST"); // Пользователь не использует продукты с типом INVEST
+        condition = condition && userActivityProfile.containsProductType("DEBIT"); // Пользователь использует как минимум один продукт с типом DEBIT
+        condition = condition && !userActivityProfile.containsProductType("INVEST"); // Пользователь не использует продукты с типом INVEST
         condition = condition && userActivityProfile.getDepositAmount("SAVING") > 1000; // Сумма пополнений продуктов с типом SAVING больше 1000 ₽
 
         if (condition) {

@@ -14,7 +14,7 @@ public class RecommendationRule3 implements IRecommendationRule {
     @Override
     public void apply(UserActivityProfile userActivityProfile, AllRecommendations allRecommendations) {
         boolean condition = true;
-        condition = condition && !userActivityProfile.containsKey("CREDIT"); // Пользователь не использует продукты с типом CREDIT
+        condition = condition && !userActivityProfile.containsProductType("CREDIT"); // Пользователь не использует продукты с типом CREDIT
 
         // Сумма пополнений по всем продуктам типа DEBIT больше, чем сумма трат по всем продуктам типа DEBIT.
         condition = condition && userActivityProfile.getDepositAmount("DEBIT")  > userActivityProfile.getWithDrawAmount("DEBIT");
