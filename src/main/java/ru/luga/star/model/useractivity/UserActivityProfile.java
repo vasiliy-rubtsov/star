@@ -1,6 +1,4 @@
-package ru.luga.star.model.dto;
-
-import org.springframework.data.relational.core.sql.In;
+package ru.luga.star.model.useractivity;
 
 import java.util.HashMap;
 import java.util.Map;

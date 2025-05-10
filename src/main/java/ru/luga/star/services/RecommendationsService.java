@@ -1,8 +1,9 @@
 package ru.luga.star.services;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.luga.star.model.dto.AllRecommendations;
-import ru.luga.star.model.dto.UserActivityProfile;
+import ru.luga.star.model.useractivity.UserActivityProfile;
 import ru.luga.star.repositories.RecommendationsRepository;
 import ru.luga.star.services.rules.IRecommendationRule;
 
@@ -22,7 +23,7 @@ public class RecommendationsService {
         AllRecommendations allRecommendations = new AllRecommendations();
         UserActivityProfile userActivityProfile = recommendationsRepository.getUserActivityProfile(userId);
         allRecommendations.setUserId(userId);
-        rules.stream().forEach(rule -> {
+        rules.forEach(rule -> {
             rule.apply(userActivityProfile, allRecommendations);
         });
         return allRecommendations;

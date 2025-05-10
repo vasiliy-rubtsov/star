@@ -1,4 +1,4 @@
-package ru.luga.star.model.dto;
+package ru.luga.star.model.useractivity;
 
 public class UserActivity {
     private String productType;     // тип продукта
