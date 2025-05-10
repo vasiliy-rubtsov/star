@@ -43,10 +43,7 @@ public class RecommendationsRepository {
         }, userId);
 
         UserActivityProfile result = new UserActivityProfile();
-        userActivities.stream().forEach(userActivity -> {
-            result.addUserActivity(userActivity);
-        });
-
+        userActivities.forEach(result::addUserActivity);
         return result;
     }
 
