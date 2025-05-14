@@ -1,13 +1,11 @@
-package ru.luga.star.model.dto;
-
-import org.springframework.data.relational.core.sql.In;
+package ru.luga.star.model.useractivity;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class UserActivityProfile {
 
-    private final Map<String, Map<String, Integer>> data;
+    private final Map<String, Map<String, Map<String, Integer>>> data;
 
     public UserActivityProfile() {
         this.data = new HashMap<>();
@@ -20,12 +18,15 @@ public class UserActivityProfile {
         String productType = userActivity.getProductType();
         String transactionType = userActivity.getTransactonType();
         Integer amount = userActivity.getAmount();
+        Integer transactionCount = userActivity.getTransactionCount();
 
         if (!this.data.containsKey(productType)) {
             this.data.put(productType, new HashMap<>());
         }
 
-        this.data.get(productType).put(transactionType, amount);
+        Map<String, Integer> data = Map.of("AMOUNT", amount, "COUNT", transactionCount);
+
+        this.data.get(productType).put(transactionType, data);
     }
 
     /**
@@ -44,7 +45,22 @@ public class UserActivityProfile {
         }
 
         if (this.data.get(productType).containsKey("DEPOSIT")) {
-            return this.data.get(productType).get("DEPOSIT");
+            return this.data.get(productType).get("DEPOSIT").get("AMOUNT");
+        }
+
+        return 0;
+    }
+
+    /**
+     * Вернуть количество транзакций пополнения по продуктам данного типа
+     */
+    public Integer getDepositTranCount(String productType) {
+        if (!this.data.containsKey(productType)) {
+            return 0;
+        }
+
+        if (this.data.get(productType).containsKey("DEPOSIT")) {
+            return this.data.get(productType).get("DEPOSIT").get("COUNT");
         }
 
         return 0;
@@ -59,7 +75,22 @@ public class UserActivityProfile {
         }
 
         if (this.data.get(productType).containsKey("WITHDRAW")) {
-            return this.data.get(productType).get("WITHDRAW");
+            return this.data.get(productType).get("WITHDRAW").get("AMOUNT");
+        }
+
+        return 0;
+    }
+
+    /**
+     * Вернуть количество транзакций списания средств по продуктам данного типа
+     */
+    public Integer getWithDrawTranCount(String productType) {
+        if (!this.data.containsKey(productType)) {
+            return 0;
+        }
+
+        if (this.data.get(productType).containsKey("WITHDRAW")) {
+            return this.data.get(productType).get("WITHDRAW").get("COUNT");
         }
 
         return 0;
