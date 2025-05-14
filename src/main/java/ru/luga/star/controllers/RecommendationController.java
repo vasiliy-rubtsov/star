@@ -18,7 +18,7 @@ public class RecommendationController {
 
     @GetMapping("/recommendation/{userId}")
     public ResponseEntity<AllRecommendations> recommendation(@PathVariable("userId") String userId) {
-        AllRecommendations response = recommendationsService.getAllRecommendationsOnDynamicRules(userId);
+        AllRecommendations response = recommendationsService.getAllRecommendations(userId);
 
         return ResponseEntity.ok(response);
     }

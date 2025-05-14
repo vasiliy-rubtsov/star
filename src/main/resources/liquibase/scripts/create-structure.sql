@@ -4,7 +4,7 @@ CREATE TABLE products(
     id SERIAL NOT NULL PRIMARY KEY,
     product_id VARCHAR(50) NOT NULL,
     product_name VARCHAR(500) NOT NULL,
-    product_text TEXT
+    product_text VARCHAR(5000)
 );
 
 CREATE TABLE rules(

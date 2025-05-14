@@ -1,6 +1,7 @@
 package ru.luga.star.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 import ru.luga.star.model.dto.rule.ProductDto;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Product {
     @Column(name = "product_name")
     private String productName;
 
-    @Column(name = "product_text")
+    @Column(name = "product_text", length = 5000)
     private String productText;
 
     public Product() {

@@ -25,7 +25,8 @@ public class RecommendationsRepository {
         String sql= "SELECT\n" +
                 "\tp.\"TYPE\" AS \"PRODUCT_TYPE\",\n" +
                 "\tt.\"TYPE\" AS \"TRANSACTION_TYPE\",\n" +
-                "\tSUM(t.AMOUNT) AS \"AMOUNT\"\n" +
+                "\tSUM(t.AMOUNT) AS \"AMOUNT\",\n" +
+                "\tCOUNT(t.ID) AS \"TRANSACTION_COUNT\"\n" +
                 "FROM\n" +
                 "\tTRANSACTIONS t\n" +
                 "\t\tINNER JOIN PRODUCTS p ON t.PRODUCT_ID = p.ID \n" +
@@ -39,6 +40,8 @@ public class RecommendationsRepository {
             userActivity.setProductType(resultSet.getString("PRODUCT_TYPE"));
             userActivity.setTransactonType(resultSet.getString("TRANSACTION_TYPE"));
             userActivity.setAmount(resultSet.getInt("AMOUNT"));
+            userActivity.setTransactionCount(resultSet.getInt("TRANSACTION_COUNT"));
+
             return userActivity;
         }, userId);
 

@@ -95,10 +95,8 @@ public class ProductDto implements InputDto {
             throw new IllegalArgumentException("Не указано описание рекомендуемого продукта");
         }
 
-        if (rules.isEmpty()) {
-            throw new IllegalArgumentException("Не заданы правила для рекомендуемого продукта");
+        if (!rules.isEmpty()) {
+            rules.forEach(RuleDto::validate);
         }
-
-        rules.forEach(RuleDto::validate);
     }
 }

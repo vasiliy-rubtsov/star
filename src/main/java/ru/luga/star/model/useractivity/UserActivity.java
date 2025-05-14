@@ -4,6 +4,7 @@ public class UserActivity {
     private String productType;     // тип продукта
     private String transactonType;  // тип транзакции (приход/расход)
     private Integer amount;         // сумма
+    private Integer transactionCount; // кол-во транзакций данного типа
 
     public UserActivity() {
     }
@@ -30,5 +31,13 @@ public class UserActivity {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public Integer getTransactionCount() {
+        return transactionCount;
+    }
+
+    public void setTransactionCount(Integer transactionCount) {
+        this.transactionCount = transactionCount;
     }
 }
