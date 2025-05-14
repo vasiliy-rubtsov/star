@@ -2,8 +2,12 @@ package ru.luga.star.services;
 
 import org.springframework.stereotype.Service;
 import ru.luga.star.model.Product;
+import ru.luga.star.model.RuleStat;
+import ru.luga.star.model.dto.rule.AllRuleStatsDto;
 import ru.luga.star.model.dto.rule.ProductDto;
+import ru.luga.star.model.dto.rule.RuleStatDto;
 import ru.luga.star.repositories.ProductRepository;
+import ru.luga.star.repositories.RuleStatRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +15,10 @@ import java.util.List;
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
-    public ProductService(ProductRepository productRepository) {
+    private final RuleStatRepository ruleStatRepository;
+    public ProductService(ProductRepository productRepository, RuleStatRepository ruleStatRepository) {
         this.productRepository = productRepository;
+        this.ruleStatRepository = ruleStatRepository;
     }
 
     public ProductDto addProduct(ProductDto productDto) {
@@ -41,5 +47,16 @@ public class ProductService {
             result.add(productDto);
         }
         return result;
+    }
+
+    public AllRuleStatsDto getAllRuleStats() {
+        List<RuleStat> ruleStats = ruleStatRepository.findAll();
+        AllRuleStatsDto allRuleStatsDto = new AllRuleStatsDto();
+        for (RuleStat ruleStat : ruleStats) {
+            RuleStatDto ruleStatDto = new RuleStatDto(ruleStat.getId(), ruleStat.getCount());
+            allRuleStatsDto.addRuleStatDto(ruleStatDto);
+        }
+
+        return allRuleStatsDto;
     }
 }
