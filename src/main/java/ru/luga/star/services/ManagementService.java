@@ -1,6 +1,5 @@
 package ru.luga.star.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Service;
 import ru.luga.star.model.dto.management.BuildPropertiesDto;

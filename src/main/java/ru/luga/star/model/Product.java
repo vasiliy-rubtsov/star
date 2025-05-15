@@ -1,11 +1,9 @@
 package ru.luga.star.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
 import ru.luga.star.model.dto.rule.ProductDto;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
