@@ -1,7 +1,6 @@
 package ru.luga.star.model;
 
 import jakarta.persistence.*;
-import org.springframework.data.relational.core.sql.In;
 
 @Entity
 @Table(name = "arguments")

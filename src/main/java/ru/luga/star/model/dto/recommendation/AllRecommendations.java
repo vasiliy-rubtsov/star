@@ -38,4 +38,12 @@ public class AllRecommendations {
         this.recommendations = recommendations;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Recommendation recommendation : recommendations) {
+            result.append(recommendation.toString()).append("\n\n");
+        }
+        return result.toString();
+    }
 }

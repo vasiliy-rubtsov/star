@@ -1,7 +1,6 @@
 package ru.luga.star.services.staticrules;
 
 import ru.luga.star.model.Product;
-import ru.luga.star.model.Rule;
 
 import java.util.HashMap;
 import java.util.Map;

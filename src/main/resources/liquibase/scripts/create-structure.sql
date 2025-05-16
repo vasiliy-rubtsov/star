@@ -24,6 +24,10 @@ CREATE TABLE arguments(
 ALTER TABLE rules ADD CONSTRAINT fk__rule__recommendation FOREIGN KEY (product_id) REFERENCES products(id);
 ALTER TABLE arguments ADD CONSTRAINT fk__argument__rule FOREIGN KEY (rule_id) REFERENCES rules(id);
 
-
+-- changeset vasiliy.rubtsov:2
+CREATE TABLE rule_stats(
+    id INT NOT NULL PRIMARY KEY,
+    count INT NOT NULL DEFAULT 0
+);
 
 

@@ -17,7 +17,7 @@ public class Rule {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @OneToMany(mappedBy = "rule", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "rule", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("position")
     private List<Argument> arguments;
 

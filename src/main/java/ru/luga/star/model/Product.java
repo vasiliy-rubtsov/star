@@ -1,11 +1,9 @@
 package ru.luga.star.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
 import ru.luga.star.model.dto.rule.ProductDto;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -15,7 +13,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Rule> rules;
 
     @Column(name = "product_id")

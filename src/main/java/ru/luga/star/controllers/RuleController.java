@@ -3,6 +3,7 @@ package ru.luga.star.controllers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.luga.star.model.dto.rule.AllRuleStatsDto;
 import ru.luga.star.model.dto.rule.ProductDto;
 import ru.luga.star.services.ProductService;
 
@@ -38,5 +39,11 @@ public class RuleController {
     @GetMapping
     public ResponseEntity<List<ProductDto>> getRules() {
         return ResponseEntity.ok(productService.getProducts());
+    }
+
+    @GetMapping("/stats")
+    public ResponseEntity<AllRuleStatsDto> getAllRuleStats() {
+        AllRuleStatsDto allRuleStatsDto = productService.getAllRuleStats();
+        return ResponseEntity.ok(allRuleStatsDto);
     }
 }
