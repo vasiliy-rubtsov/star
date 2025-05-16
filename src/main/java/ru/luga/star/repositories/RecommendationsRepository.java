@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.luga.star.model.dto.recommendation.UserDto;
 import ru.luga.star.model.useractivity.UserActivity;
 import ru.luga.star.model.useractivity.UserActivityProfile;
 
@@ -15,6 +16,33 @@ public class RecommendationsRepository {
 
     public RecommendationsRepository(@Qualifier("recommendationsJdbcTemplate") JdbcTemplate recommendationsJdbcTemplate) {
         this.recommendationsJdbcTemplate = recommendationsJdbcTemplate;
+    }
+
+    /**
+     *  Получение пользователя по логину
+     */
+    @Cacheable(value = "User", key = "{#userLogin}", condition = "#result != null")
+    public UserDto findUserByLogin(String userLogin) {
+        String sql = "SELECT\n" +
+                "    ID AS \"USER_ID\",\n" +
+                "    USERNAME AS \"USER_LOGIN\",\n" +
+                "    CONCAT(FIRST_NAME, ' ', LAST_NAME) AS \"USER_FULL_NAME\"\n" +
+                "FROM USERS WHERE USERNAME = ?";
+
+        List<UserDto> result = recommendationsJdbcTemplate.query(sql, (resultset, rownum) -> {
+            UserDto user = new UserDto(
+                resultset.getString("USER_ID"),
+                resultset.getString("USER_LOGIN"),
+                resultset.getString("USER_FULL_NAME")
+            );
+            return user;
+        }, userLogin);
+
+        if (!result.isEmpty()) {
+            return result.get(0);
+        } else {
+            return null;
+        }
     }
 
     /**

@@ -25,7 +25,7 @@ public class CacheConfig {
     public CacheManager cacheManager(Caffeine<Object, Object> caffeine ) {
         CaffeineCacheManager cacheManager = new CaffeineCacheManager();
         cacheManager.setCaffeine(caffeine);
-        cacheManager.setCacheNames(List.of("UserActivityProfile"));
+        cacheManager.setCacheNames(List.of("UserActivityProfile", "User", "Product"));
         return cacheManager;
     }
 }
