@@ -3,11 +3,14 @@ package ru.luga.star.model.dto.management;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.boot.info.BuildProperties;
 
+/**
+ * Выходной DTO с описанием сведений о программе
+ */
 public class BuildPropertiesDto {
     @JsonProperty("name")
-    private String name;
+    private String name;        // Наименование приложения
 
-    @JsonProperty("version")
+    @JsonProperty("version")    // Версия
     private String version;
 
     public BuildPropertiesDto() {

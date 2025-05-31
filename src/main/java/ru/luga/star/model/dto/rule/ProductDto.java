@@ -8,6 +8,9 @@ import ru.luga.star.model.dto.InputDto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Входной DTO с описанием продукта
+ */
 public class ProductDto implements InputDto {
 
     @JsonProperty("id")

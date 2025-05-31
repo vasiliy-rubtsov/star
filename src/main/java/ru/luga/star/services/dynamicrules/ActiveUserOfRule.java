@@ -4,6 +4,9 @@ import ru.luga.star.model.useractivity.UserActivityProfile;
 
 import java.util.List;
 
+/**
+ * Динамическое правило на основе запроса ACTIVE_USER_OF
+ */
 public class ActiveUserOfRule implements DynamicRule{
     private List<String> arguments;
     private boolean negate = false;

@@ -5,9 +5,17 @@ import ru.luga.star.model.Product;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Построитель статических правил
+ */
 public class StaticRuleBuilder {
     private final static Map<Long, StaticRule> staticRules = new HashMap<>();
 
+    /**
+     * Создает статическое правило на основе описания рекомендуемого продукта из БД
+     * @param product описание рекомендуемого продукта из БД
+     * @return статическое правило
+     */
     public static StaticRule build(Product product) {
         String productName = product.getProductName();
         Long key = product.getId();

@@ -5,14 +5,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+/**
+ * БД: Статитстика использования динамических
+ */
 @Entity
 @Table(name = "rule_stats")
 public class RuleStat {
     @Column(name = "id")
     @Id
-    private Long id;
+    private Long id;    // id динмаического правила (->Rule)
 
-    @Column(name = "count")
+    @Column(name = "count") // Кол-во случаев применения динамического правила
     private Long count;
 
     public RuleStat() {

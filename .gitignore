@@ -33,3 +33,4 @@ build/
 
 ### файловая БД ###
 transaction.*
+/properties.env

@@ -2,22 +2,25 @@ package ru.luga.star.model;
 
 import jakarta.persistence.*;
 
+/**
+ * БД: Описание аргумента правила
+ */
 @Entity
 @Table(name = "arguments")
 public class Argument {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;    // ID
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "rule_id")
-    private Rule rule;
+    private Rule rule;  // Правило, к которому относится аргумент
 
     @Column(name = "position")
-    private Integer position = 0;
+    private Integer position = 0;   // Порядковый номер в описании правила (от этого зависит назначение аргумента)
 
     @Column(name = "value")
-    private String value;
+    private String value; // значение
 
     public Argument() {}
 

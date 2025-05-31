@@ -2,11 +2,14 @@ package ru.luga.star.model.dto.recommendation;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+/**
+ * Выходной DTO c описанием рекомендации пользователю
+ */
 @JsonPropertyOrder({"name", "id", "text"})
 public class Recommendation {
-    private String name;
-    private String id;
-    private String text;
+    private String name;    // Наименование продукта
+    private String id;      // ID продукта в банковской программе
+    private String text;    // Описание продукта
 
     public Recommendation() {
     }

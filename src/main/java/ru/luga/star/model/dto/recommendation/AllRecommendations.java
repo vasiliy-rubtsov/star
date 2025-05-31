@@ -6,13 +6,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Выходной DTO с описанием всех рекомендация данному пользоввателю
+ */
 @JsonPropertyOrder({"user_id", "recommendations"})
 public class AllRecommendations {
 
     @JsonProperty("user_id")
-    private String userId;
+    private String userId;  // ID пользователя в банковской программе
     @JsonPropertyOrder
-    private List<Recommendation> recommendations;
+    private List<Recommendation> recommendations; // Список рекомендаций для данного пользователя
 
     public AllRecommendations() {
         recommendations = new ArrayList<>();

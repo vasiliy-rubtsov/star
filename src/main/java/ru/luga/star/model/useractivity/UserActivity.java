@@ -1,9 +1,12 @@
 package ru.luga.star.model.useractivity;
 
+/**
+ * Активность пользователя по продукту и типу транзакции
+ */
 public class UserActivity {
-    private String productType;     // тип продукта
-    private String transactonType;  // тип транзакции (приход/расход)
-    private Integer amount;         // сумма
+    private String productType;     // тип продукта из банковской системы
+    private String transactonType;  // тип транзакции из банковской системы (приход/расход)
+    private Integer amount;         // сумма по всем транзакциям данного типа
     private Integer transactionCount; // кол-во транзакций данного типа
 
     public UserActivity() {

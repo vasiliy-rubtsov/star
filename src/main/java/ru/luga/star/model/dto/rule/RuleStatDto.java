@@ -2,6 +2,9 @@ package ru.luga.star.model.dto.rule;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Выходной DTO с описанием отчета по отдельному статическому правилу
+ */
 public class RuleStatDto {
     @JsonProperty("rule_id")
     private Long ruleId;

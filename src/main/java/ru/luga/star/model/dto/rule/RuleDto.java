@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Входной DTO с описанием динамического правила
+ */
 public class RuleDto implements InputDto {
 
     @JsonProperty("query")

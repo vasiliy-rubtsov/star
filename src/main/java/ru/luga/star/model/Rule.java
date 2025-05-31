@@ -6,26 +6,29 @@ import ru.luga.star.model.dto.rule.RuleDto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * БД: Описание динамического правила
+ */
 @Entity
 @Table(name = "rules")
 public class Rule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // id
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id")
-    private Product product;
+    private Product product; // Продукт, для которого применяется правило
 
     @OneToMany(mappedBy = "rule", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("position")
-    private List<Argument> arguments;
+    private List<Argument> arguments;   // аргументы правила
 
     @Column(name = "query")
-    private String query;
+    private String query;   // тип запроса
 
     @Column(name = "negate")
-    private boolean negate = false;
+    private boolean negate = false; // отрицание
 
     public Rule() {
         arguments = new ArrayList<>();

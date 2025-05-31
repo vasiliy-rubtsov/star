@@ -1,9 +1,12 @@
 package ru.luga.star.model.dto.recommendation;
 
+/**
+ * Выходной DTO c описанием пользователя
+ */
 public class UserDto {
-    private String userId;
-    private String userLogin;
-    private String userFullName;
+    private String userId;          // ID пользователя в банковской программе
+    private String userLogin;       // Логин
+    private String userFullName;    // Полное имя пользователя
 
     public UserDto() {
     }
