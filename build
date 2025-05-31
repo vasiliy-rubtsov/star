@@ -1,0 +1,10 @@
+#!/bin/sh
+export STAR_SERVER_PORT=8000
+export STAR_RECOMMENDATIONS_DB_URL=jdbc:h2:file:./transaction
+export STAR_DATASOURCE_URL=jdbc:postgresql://localhost:5433/star
+export STAR_DATASOURCE_USERNAME=student
+export STAR_DATASOURCE_PASSWORD=chocolatefrog
+export STAR_TELEGRAMBOT_TOKEN=7860967616:AAGZmtGh3Bw4OCyev32sQabwUimU8KgQLV0
+./mvnw package
+
+

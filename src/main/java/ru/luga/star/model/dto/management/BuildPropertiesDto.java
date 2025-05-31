@@ -1,15 +1,19 @@
 package ru.luga.star.model.dto.management;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.boot.info.BuildProperties;
 
 /**
  * Выходной DTO с описанием сведений о программе
  */
+@Schema(description = "Сведения о программе")
 public class BuildPropertiesDto {
+    @Schema(description = "Наименование приложения", example = "star")
     @JsonProperty("name")
     private String name;        // Наименование приложения
 
+    @Schema(description = "версия", example = "0.0.1-SNAPSHOT")
     @JsonProperty("version")    // Версия
     private String version;
 

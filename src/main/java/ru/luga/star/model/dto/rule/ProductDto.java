@@ -1,6 +1,7 @@
 package ru.luga.star.model.dto.rule;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import ru.luga.star.model.Product;
 import ru.luga.star.model.Rule;
 import ru.luga.star.model.dto.InputDto;
@@ -11,20 +12,26 @@ import java.util.List;
 /**
  * Входной DTO с описанием продукта
  */
+@Schema(description = "")
 public class ProductDto implements InputDto {
 
+    @Schema(description = "Внутренний ID продукта в приложении", example = "2")
     @JsonProperty("id")
     private Long id;
 
+    @Schema(description = "Наименование продукта", example = "Простой кредит")
     @JsonProperty("product_name")
     private String productName;
 
+    @Schema(description = "ID продукта в банковской системе", example = "ab138afb-f3ba-4a93-b74f-0fcee86d447f")
     @JsonProperty("product_id")
     private String productId;
 
+    @Schema(description = "Описание продукта", example = "Откройте мир выгодных кредитов с нами!")
     @JsonProperty("product_text")
     private String productText;
 
+    @Schema(description = "Список правил, выполнение которых необходимо для рекомендации этого продукта")
     @JsonProperty("rule")
     private List<RuleDto> rules;
 
