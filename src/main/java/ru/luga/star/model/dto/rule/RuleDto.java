@@ -1,6 +1,8 @@
 package ru.luga.star.model.dto.rule;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.xml.bind.annotation.XmlList;
 import ru.luga.star.model.Argument;
 import ru.luga.star.model.Rule;
 import ru.luga.star.model.dto.InputDto;
@@ -9,14 +11,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Входной DTO с описанием динамического правила
+ */
+@Schema(description = "Динамическое правило")
 public class RuleDto implements InputDto {
 
+    @Schema(description = "Тип запроса", example = "TRANSACTION_SUM_COMPARE")
     @JsonProperty("query")
     private String query;
 
+    @Schema(description = "Список с аргументами запроса")
     @JsonProperty("arguments")
     private List<String> arguments;
 
+    @Schema(description = "Признак инверсии условия запроса", example = "false")
     @JsonProperty("negate")
     private boolean negate;
 

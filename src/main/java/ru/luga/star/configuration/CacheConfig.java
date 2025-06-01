@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Конфигурация кэша
+ */
 @EnableCaching
 @Configuration
 public class CacheConfig {

@@ -1,0 +1,10 @@
+#!/bin/sh
+file=./properties-local.env
+while IFS="" read -r p || [ -n "$p" ]
+do
+  eval "export $p"
+done < $file
+./mvnw package
+
+
+

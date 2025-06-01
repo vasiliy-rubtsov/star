@@ -11,8 +11,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
+/**
+ * Конфигурация источников данных
+ */
 @Configuration
 public class RecommendationsDataSourceConfiguration {
+    /**
+     * Источник данных для связи с БД банковского приложения
+     * @param recommendationsUrl
+     * @return
+     */
     @Bean(name = "recommendationsDataSource")
     public DataSource recommendationsDataSource(@Value("${application.recommendations-db.url}") String recommendationsUrl) {
         var dataSource = new HikariDataSource();
@@ -22,15 +30,20 @@ public class RecommendationsDataSourceConfiguration {
         return dataSource;
     }
 
+    @Bean(name = "recommendationsJdbcTemplate")
+    public JdbcTemplate recommendationsJdbcTemplate(@Qualifier("recommendationsDataSource") DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
+
+    /**
+     * Источник данных для подключения к собственной БД
+     * @param dataSourceProperties
+     * @return
+     */
     @Primary
     @Bean(name = "defaultRecommendationsDataSource")
     public DataSource defaultRecommendationsDataSource(DataSourceProperties dataSourceProperties) {
         return dataSourceProperties.initializeDataSourceBuilder().build();
-    }
-
-    @Bean(name = "recommendationsJdbcTemplate")
-    public JdbcTemplate recommendationsJdbcTemplate(@Qualifier("recommendationsDataSource") DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
     }
 }
 

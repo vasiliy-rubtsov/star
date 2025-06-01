@@ -7,9 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Постоитель динамических правил
+ */
 public class DynamicRuleBuilder {
     private final static Map<Long, DynamicRule> dynamicRules = new HashMap<>();
 
+    /**
+     * @param rule описание динамического правила из БД
+     * @return динамическое правило
+     */
     public static  DynamicRule build(Rule rule) {
         String queryType = rule.getQuery();
         Long key = rule.getId();

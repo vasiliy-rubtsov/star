@@ -1,9 +1,20 @@
 package ru.luga.star.model.dto.recommendation;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+/**
+ * Выходной DTO c описанием пользователя
+ */
+@Schema(description = "Сведения о пользователе")
 public class UserDto {
-    private String userId;
-    private String userLogin;
-    private String userFullName;
+    @Schema(description = "ИД пользователя в банковской программе", example = "1f9b149c-6577-448a-bc94-16bea229b71a")
+    private String userId;          // ID пользователя в банковской программе
+
+    @Schema(description = "Логин")
+    private String userLogin;       // Логин
+
+    @Schema(description = "Пароль")
+    private String userFullName;    // Полное имя пользователя
 
     public UserDto() {
     }

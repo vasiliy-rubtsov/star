@@ -19,7 +19,7 @@ public class RecommendationsRepository {
     }
 
     /**
-     *  Получение пользователя по логину
+     *  Возвращает пользователя по логину
      */
     @Cacheable(value = "User", key = "{#userLogin}", condition = "#result != null")
     public UserDto findUserByLogin(String userLogin) {
@@ -46,7 +46,7 @@ public class RecommendationsRepository {
     }
 
     /**
-     * Получение профиля активности пользователя по типам продуктов
+     * Возвращает профиль активности пользователя по типам продуктов
      */
     @Cacheable(value = "UserActivityProfile", key = "{#userId}")
     public UserActivityProfile getUserActivityProfile(String userId) {

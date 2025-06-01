@@ -3,8 +3,25 @@ package ru.luga.star.model.useractivity;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Профиль активности пользователя
+ */
 public class UserActivityProfile {
 
+    /**
+     * Профиль активности пользователя, представляющий структуру следующего типа
+     * [
+     * 	    {
+     * 		"<Тип продукта из банковской системы>": {
+     * 			"<Тип транзации из банковской системы>": {
+     * 				"AMOUNT": <Сумма транзакций с данным типом>,
+     * 				"COUNT": <Количество тразнакций с данным типом>
+     *            }
+     *        }
+     *    },
+     * 	...
+     * ]
+     */
     private final Map<String, Map<String, Map<String, Integer>>> data;
 
     public UserActivityProfile() {
@@ -13,6 +30,7 @@ public class UserActivityProfile {
 
     /**
      * Добавить активность пользователя в структуру
+     * @param userActivity
      */
     public void addUserActivity(UserActivity userActivity) {
         String productType = userActivity.getProductType();
@@ -30,7 +48,9 @@ public class UserActivityProfile {
     }
 
     /**
-     *  Проверить, содержит ли профиль даные о продукте с указанным типом
+     * Проверить, содержит ли профиль даные о продукте с указанным типом
+     * @param productType
+     * @return
      */
     public boolean containsProductType(String productType) {
         return this.data.containsKey(productType);
@@ -38,6 +58,8 @@ public class UserActivityProfile {
 
     /**
      * Вернуть сумму пополнения по продуктам данного типа
+     * @param productType
+     * @return
      */
     public Integer getDepositAmount(String productType) {
         if (!this.data.containsKey(productType)) {
@@ -53,6 +75,8 @@ public class UserActivityProfile {
 
     /**
      * Вернуть количество транзакций пополнения по продуктам данного типа
+     * @param productType
+     * @return
      */
     public Integer getDepositTranCount(String productType) {
         if (!this.data.containsKey(productType)) {
@@ -68,6 +92,8 @@ public class UserActivityProfile {
 
     /**
      * Вернуть сумму трат по продуктам данного типа
+     * @param productType
+     * @return
      */
     public Integer getWithDrawAmount(String productType) {
         if (!this.data.containsKey(productType)) {
@@ -83,6 +109,8 @@ public class UserActivityProfile {
 
     /**
      * Вернуть количество транзакций списания средств по продуктам данного типа
+     * @param productType
+     * @return
      */
     public Integer getWithDrawTranCount(String productType) {
         if (!this.data.containsKey(productType)) {

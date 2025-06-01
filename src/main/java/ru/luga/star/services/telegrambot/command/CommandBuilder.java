@@ -16,6 +16,11 @@ public class CommandBuilder {
         this.recommendationsService = recommendationsService;
     }
 
+    /**
+     * @param command
+     * @param parameters
+     * @return
+     */
     public Command build(
             String command,
             List<String> parameters

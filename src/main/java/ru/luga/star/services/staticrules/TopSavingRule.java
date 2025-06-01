@@ -2,6 +2,9 @@ package ru.luga.star.services.staticrules;
 
 import ru.luga.star.model.useractivity.UserActivityProfile;
 
+/**
+ * Статическое правило для продукта Top Saving
+ */
 public class TopSavingRule implements StaticRule {
     @Override
     public boolean apply(UserActivityProfile userActivityProfile) {

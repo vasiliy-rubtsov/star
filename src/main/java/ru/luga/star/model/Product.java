@@ -6,24 +6,27 @@ import ru.luga.star.model.dto.rule.ProductDto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * БД: Описание продукта
+ */
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;    // id
 
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Rule> rules;
+    private List<Rule> rules; // Список правил (динамических и статических) для данного продукта
 
     @Column(name = "product_id")
-    private String productId;
+    private String productId; // id продукта в банковской программе
 
     @Column(name = "product_name")
-    private String productName;
+    private String productName; // Наименование продукта
 
     @Column(name = "product_text", length = 5000)
-    private String productText;
+    private String productText; // Описание продукта
 
     public Product() {
         rules = new ArrayList<>();
