@@ -33,4 +33,7 @@ build/
 
 ### файловая БД ###
 transaction.*
-/properties.env
+### локальные настройки ###
+*-local*
+
+

@@ -1,9 +1,3 @@
-@SET STAR_SERVER_PORT=8000
-@SET STAR_RECOMMENDATIONS_DB_URL=jdbc:h2:file:./transaction
-@SET STAR_DATASOURCE_URL=jdbc:postgresql://localhost:5433/star
-@SET STAR_DATASOURCE_USERNAME=student
-@SET STAR_DATASOURCE_PASSWORD=chocolatefrog
-@SET STAR_TELEGRAMBOT_TOKEN=7860967616:AAGZmtGh3Bw4OCyev32sQabwUimU8KgQLV0
-java -jar .\target\star-0.0.1-SNAPSHOT.jar
-
+for /f "delims=" %%x in (properties-local.env) do (set "%%x")
+java -jar .\target\star-%STAR_VERSION%.jar
 

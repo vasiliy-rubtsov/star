@@ -10,7 +10,7 @@
     </parent>
     <groupId>ru.luga</groupId>
     <artifactId>star</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${env.STAR_VERSION}</version>
     <name>star</name>
     <description>star</description>
     <url/>
