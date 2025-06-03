@@ -1,7 +1,7 @@
 package ru.luga.star.model;
 
 import jakarta.persistence.*;
-import ru.luga.star.model.dto.rule.ProductDto;
+import ru.luga.star.dto.rule.ProductDto;
 
 import java.util.ArrayList;
 import java.util.List;

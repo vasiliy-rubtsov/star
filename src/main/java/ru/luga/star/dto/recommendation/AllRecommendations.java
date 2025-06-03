@@ -1,4 +1,4 @@
-package ru.luga.star.model.dto.recommendation;
+package ru.luga.star.dto.recommendation;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

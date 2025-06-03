@@ -1,16 +1,13 @@
-package ru.luga.star.services.telegrambot;
+package ru.luga.star.telegrambot;
 
-import org.springframework.stereotype.Service;
-
+import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Парсер входящих текстовых команд из телеграм-бота
  */
-@Service
+@Component
 public class MessageParser {
     private String command;
     private List<String> parameters = new ArrayList<>();

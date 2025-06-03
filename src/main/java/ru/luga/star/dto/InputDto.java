@@ -1,4 +1,4 @@
-package ru.luga.star.model.dto;
+package ru.luga.star.dto;
 
 /**
  * Общий интерфейс для всех входящих DTO

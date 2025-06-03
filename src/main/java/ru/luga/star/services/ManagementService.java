@@ -2,7 +2,7 @@ package ru.luga.star.services;
 
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Service;
-import ru.luga.star.model.dto.management.BuildPropertiesDto;
+import ru.luga.star.dto.management.BuildPropertiesDto;
 
 @Service
 public class ManagementService {

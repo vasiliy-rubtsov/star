@@ -1,11 +1,9 @@
-package ru.luga.star.services.telegrambot.command;
+package ru.luga.star.telegrambot.command;
 
-import ru.luga.star.model.dto.recommendation.AllRecommendations;
-import ru.luga.star.model.dto.recommendation.UserDto;
+import ru.luga.star.dto.recommendation.AllRecommendations;
+import ru.luga.star.dto.recommendation.UserDto;
 import ru.luga.star.services.RecommendationsService;
-import ru.luga.star.services.telegrambot.MessageSender;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendCommand implements Command {
