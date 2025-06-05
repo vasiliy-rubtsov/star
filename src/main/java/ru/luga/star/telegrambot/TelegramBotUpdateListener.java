@@ -1,17 +1,17 @@
-package ru.luga.star.services.telegrambot;
+package ru.luga.star.telegrambot;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
 import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Service;
-import ru.luga.star.services.telegrambot.command.Command;
-import ru.luga.star.services.telegrambot.command.CommandBuilder;
+import org.springframework.stereotype.Component;
+import ru.luga.star.telegrambot.command.Command;
+import ru.luga.star.telegrambot.command.CommandBuilder;
 
 import java.util.List;
 
-@Service
+@Component
 public class TelegramBotUpdateListener implements UpdatesListener {
     private final String INVALID_COMMAND_CALL_MESSAGE = "Ошибочный синтаксис команды";
 

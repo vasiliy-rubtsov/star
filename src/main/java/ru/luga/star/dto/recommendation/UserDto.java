@@ -1,4 +1,4 @@
-package ru.luga.star.model.dto.recommendation;
+package ru.luga.star.dto.recommendation;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

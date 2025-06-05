@@ -3,9 +3,9 @@ package ru.luga.star.services;
 import org.springframework.stereotype.Service;
 import ru.luga.star.model.Product;
 import ru.luga.star.model.RuleStat;
-import ru.luga.star.model.dto.rule.AllRuleStatsDto;
-import ru.luga.star.model.dto.rule.ProductDto;
-import ru.luga.star.model.dto.rule.RuleStatDto;
+import ru.luga.star.dto.rule.AllRuleStatsDto;
+import ru.luga.star.dto.rule.ProductDto;
+import ru.luga.star.dto.rule.RuleStatDto;
 import ru.luga.star.repositories.ProductRepository;
 import ru.luga.star.repositories.RuleStatRepository;
 

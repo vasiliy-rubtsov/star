@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import ru.luga.star.model.dto.recommendation.UserDto;
+import ru.luga.star.dto.recommendation.UserDto;
 import ru.luga.star.model.useractivity.UserActivity;
 import ru.luga.star.model.useractivity.UserActivityProfile;
 

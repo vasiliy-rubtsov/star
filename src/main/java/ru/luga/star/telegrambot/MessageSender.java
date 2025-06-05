@@ -1,14 +1,14 @@
-package ru.luga.star.services.telegrambot;
+package ru.luga.star.telegrambot;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.model.request.ParseMode;
 import com.pengrad.telegrambot.request.SendMessage;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * Отправитель сообщений в телеграм-бот
  */
-@Service
+@Component
 public class MessageSender {
     private final TelegramBot telegramBot;
 

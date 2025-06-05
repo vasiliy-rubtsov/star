@@ -1,11 +1,10 @@
-package ru.luga.star.model.dto.rule;
+package ru.luga.star.dto.rule;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.xml.bind.annotation.XmlList;
 import ru.luga.star.model.Argument;
 import ru.luga.star.model.Rule;
-import ru.luga.star.model.dto.InputDto;
+import ru.luga.star.dto.InputDto;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,13 +1,12 @@
 package ru.luga.star.services;
 
-import jakarta.persistence.Cacheable;
 import org.springframework.stereotype.Service;
 import ru.luga.star.model.Product;
 import ru.luga.star.model.Rule;
 import ru.luga.star.model.RuleStat;
-import ru.luga.star.model.dto.recommendation.AllRecommendations;
-import ru.luga.star.model.dto.recommendation.Recommendation;
-import ru.luga.star.model.dto.recommendation.UserDto;
+import ru.luga.star.dto.recommendation.AllRecommendations;
+import ru.luga.star.dto.recommendation.Recommendation;
+import ru.luga.star.dto.recommendation.UserDto;
 import ru.luga.star.model.useractivity.UserActivityProfile;
 import ru.luga.star.repositories.ProductRepository;
 import ru.luga.star.repositories.RecommendationsRepository;
